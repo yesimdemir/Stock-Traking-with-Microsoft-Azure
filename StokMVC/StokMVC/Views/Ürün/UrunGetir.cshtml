@@ -1,0 +1,49 @@
+﻿@model StokMVC.Models.Entity.TBLURUNLER
+@{
+    ViewBag.Title = "UrunGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Ürün Güncelle</h4>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Guncelle", "Ürün", FormMethod.Post))
+                    {
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.URUNID, new { @class = "form-label" })
+                            @Html.TextBoxFor(m => m.URUNID, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.URUNAD, new { @class = "form-label" })
+                            @Html.TextBoxFor(m => m.URUNAD, new { @class = "form-control" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.MARKA, new { @class = "form-label" })
+                            @Html.TextBoxFor(m => m.MARKA, new { @class = "form-control" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.URUNKATEGORI, new { @class = "form-label" })
+                            @Html.DropDownListFor(m => m.TBLKATEGORILER.KATEGORIID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.FIYAT, new { @class = "form-label" })
+                            @Html.TextBoxFor(m => m.FIYAT, new { @class = "form-control" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.STOK, new { @class = "form-label" })
+                            @Html.TextBoxFor(m => m.STOK, new { @class = "form-control" })
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Ürün Güncelle</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

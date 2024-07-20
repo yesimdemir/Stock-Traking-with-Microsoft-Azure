@@ -1,0 +1,33 @@
+﻿@model StokMVC.Models.Entity.TBLKATEGORILER
+@{
+    ViewBag.Title = "KategoriGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Kategori Güncelle</h4>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Guncelle", "Kategori", FormMethod.Post))
+                    {
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.KATEGORIID, new { @class = "form-label" })
+                            @Html.TextBoxFor(m => m.KATEGORIID, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.KATEGORIAD, new { @class = "form-label" })
+                            @Html.TextBoxFor(m => m.KATEGORIAD, new { @class = "form-control" })
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Kategori Güncelle</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+﻿@model StokMVC.Models.Entity.TBLURUNLER
+@{
+    ViewBag.Title = "YeniUrun";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 style="color: white;">Yeni Ürün Ekle</h2>
+    <form method="post" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="URUNAD" class="form-label" style="color: white;">Ürün Adı</label>
+            <input type="text" class="form-control" name="URUNAD" id="URUNAD" required maxlength="50" placeholder="Ürün Adını Giriniz...">
+            <div class="invalid-feedback">Ürün adı boş bırakılamaz.</div>
+        </div>
+        <div class="mb-3">
+            <label for="MARKA" class="form-label" style="color: white;">Ürün Markası</label>
+            <input type="text" class="form-control" name="MARKA" id="MARKA" required maxlength="50" placeholder="Ürün Markasını Giriniz...">
+            <div class="invalid-feedback">Ürün markası boş bırakılamaz.</div>
+        </div>
+        <div class="mb-3">
+            <label for="KATEGORIID" class="form-label" style="color: white;">Kategori Seçiniz</label>
+            @Html.DropDownListFor(m => m.TBLKATEGORILER.KATEGORIID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control", id = "KATEGORIID" })
+            <div class="invalid-feedback">Kategori seçmelisiniz.</div>
+        </div>
+        <div class="mb-3">
+            <label for="FIYAT" class="form-label" style="color: white;">Ürün Fiyatı</label>
+            <input type="text" class="form-control" name="FIYAT" id="FIYAT" required placeholder="Ürün Fiyatını Giriniz...">
+            <div class="invalid-feedback">Ürün fiyatı boş bırakılamaz.</div>
+        </div>
+        <div class="mb-3">
+            <label for="STOK" class="form-label" style="color: white;">Ürün Stok Adeti</label>
+            <input type="text" class="form-control" name="STOK" id="STOK" required placeholder="Ürün Stok Adetini Giriniz...">
+            <div class="invalid-feedback">Ürün stok adeti boş bırakılamaz.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Ürün Ekle</button>
+    </form>
+</div>
+
+<script>
+    // Form doğrulama için JavaScript
+    (function () {
+        'use strict';
+
+        var forms = document.querySelectorAll('.needs-validation');
+
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+
+                    form.classList.add('was-validated');
+                }, false);
+            });
+    })();
+</script>

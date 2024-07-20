@@ -1,0 +1,43 @@
+﻿@model StokMVC.Models.Entity.TBLMUSTERILER
+@{
+    ViewBag.Title = "YeniMusteri";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 style="color: white;">Yeni Müşteri Ekle</h2>
+    <form method="post" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="MUSTERIAD" class="form-label" style="color: white;">Müşteri Adı</label>
+            @Html.TextBoxFor(m => m.MUSTERIAD, new { @class = "form-control", id = "MUSTERIAD", required = "required" })
+            <div class="invalid-feedback">Müşteri adı boş bırakılamaz.</div>
+        </div>
+        <div class="mb-3">
+            <label for="MUSTERISOYAD" class="form-label" style="color: white;">Müşteri Soyadı</label>
+            @Html.TextBoxFor(m => m.MUSTERISOYAD, new { @class = "form-control", id = "MUSTERISOYAD", required = "required" })
+            <div class="invalid-feedback">Müşteri soyadı boş bırakılamaz.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Müşteri Ekle</button>
+    </form>
+</div>
+
+<script>
+    // Form doğrulama için JavaScript
+    (function () {
+        'use strict';
+
+        var forms = document.querySelectorAll('.needs-validation');
+
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+
+                    form.classList.add('was-validated');
+                }, false);
+            });
+    })();
+</script>

@@ -1,0 +1,116 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stok Yönetim</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap 5 kullanımı -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+            body::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iQk2BI4f1EFs/v1/-1x-1.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                filter: blur(5px);
+                z-index: -1;
+            }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            padding-top: 56px;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            padding-right: 20px;
+        }
+
+        .container {
+            flex: 1;
+            margin-top: 20px;
+        }
+
+        footer {
+            padding: 1px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .navbar-nav {
+            flex: 1;
+            justify-content: space-around;
+        }
+
+        .nav-item {
+            flex: 1;
+            text-align: center;
+        }
+
+        .nav-link {
+            padding: 15px;
+        }
+
+        .navbar-brand img {
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://cdn-icons-png.flaticon.com/512/2857/2857387.png" alt="Görsel Açıklaması">
+                Bulutla Stok Uygulaması
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="/Kategori/Index/">Kategoriler</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Ürün/Index/">Ürünler</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Musteri/Index/">Müşteriler</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Satis/Index/">Satışlar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Default/Index/">Yardım</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Bulut Stok Yönetim Sistemi. Made By YM</p>
+        </div>
+    </footer>
+
+</body>
+</html>

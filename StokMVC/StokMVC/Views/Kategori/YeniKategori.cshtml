@@ -1,0 +1,38 @@
+﻿@model StokMVC.Models.Entity.TBLKATEGORILER
+@{
+    ViewBag.Title = "YeniKategori";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 style="color:white">Yeni Kategori Ekle</h2>
+    <form method="post" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="KATEGORIAD" class="form-label" style="color: white;">Kategori Adı</label>
+            @Html.TextBoxFor(m => m.KATEGORIAD, new { @class = "form-control", id = "KATEGORIAD", required = "required" })
+            <div class="invalid-feedback">Kategori adı boş bırakılamaz.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Kategori Ekle</button>
+    </form>
+</div>
+
+<script>
+    // Form doğrulama için JavaScript
+    (function () {
+        'use strict';
+
+        var forms = document.querySelectorAll('.needs-validation');
+
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+
+                    form.classList.add('was-validated');
+                }, false);
+            });
+    })();
+</script>
